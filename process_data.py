@@ -2,7 +2,20 @@ import pandas as pd
 import geopandas as gpd
 import numpy as np
 import matplotlib.pyplot as plt
+import folium
+from folium import GeoJson
 
+#seriously only run this section once if you value your time
+gdf = gpd.read_file('.\output.geojson')
+
+# remove place Timestamp as string to prevent issues with to_json() function
+for col in gdf.select_dtypes(include=[pd.Timestamp]).columns:
+    gdf[col] = gdf[col].astype(str)
+
+geojson_data = gdf.to_json()
+
+
+# This is where it speeds up
 startDt = pd.read_csv(".\May2023.csv")
 endDt = pd.read_csv(".\May2024.csv")
 startDt.head(1)

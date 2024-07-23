@@ -30,6 +30,7 @@ numpy
 matplotlib
 osmium
 json
+folium
 
 Run in linux it is so much easier than screwing around with windows and osm files
 
