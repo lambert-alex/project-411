@@ -49,3 +49,12 @@ single_end = endDt[endDt.host_id.isin(end_count.index[end_count.lt(2)])]
 # values tracking multi_start, multi_end, single_start, single_end, singleDt, endDt
 multi_start['mean_price'] = multi_start.groupby(['host_id']).price.transform('mean')
 multi_end['mean_price'] = multi_end.groupby(['host_id']).price.transform('mean')
+
+
+# this will take awhile to run
+gdf = gpd.read_file('.\output.geojson')
+gdf.plot()
+plt.title('GeoJSON Data Plot')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.show()
