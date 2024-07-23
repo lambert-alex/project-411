@@ -56,9 +56,9 @@ Run process_map.py
 Run to convert to osm file
 osmosis --read-pbf extracted.osm.pbf --write-xml extracted.osm
 
-Finally convert the data on https://mygeodata.cloud/converter/osm-to-geojson
+Finally convert the data 
+osmium export extracted.osm -o output.geojson
 
-todo nima automate this into a single executeable tool.
 
 
 Run the process_data.py
