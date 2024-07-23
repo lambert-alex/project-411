@@ -24,24 +24,24 @@ Suggested times:
 requirments for this project
 
 python 3.7
-panadas
-geopandas
-numpy
-matplotlib
-osmium
-json
-folium
+jupyter notebooks lts
+panadas lts
+geopandas lts
+numpy lts
+matplotlib lts
+osmium lts
+folium lts
 
 Run in linux it is so much easier than screwing around with windows and osm files
 
 First download the airbnb data you want from https://insideairbnb.com/get-the-data/ and place it in the same directory as process_data.py
 
-Use https://geojson.io/ to create your geojson data for the area you downloaded from insideairbnb.com or format it yourself make sure the perimeter is closed! use the box tool if you are unsure.
+Use https://geojson.io/ to create your geojson data for the area you downloaded from insideairbnb.com or format it yourself make sure the perimeter is closed! use the box tool if you are unsure on how to do this.
 
-use https://www.geofabrik.de/ to get the closest osm.pbf file you can to your geographic area this will save time
+use https://www.geofabrik.de/ to get the closest osm.pbf file you can to your geographic area this will save time save this file as extracted.osm.pbf in the base project folder
 
 
-This has only been tested with linux...
+This has only been tested with linux there are issues in windows
 Ensure you have osmium installed
 sudo apt-get install osmctools
 
@@ -50,21 +50,19 @@ sudo apt-get update
 sudo apt-get install gdal-bin
 
 
-Place file in in the same location as process_map.py and add the geoJSON data to the area_geojson var on line 6 of process_map.py
-
-Run process_map.py
-
-Run to convert to osm file
-osmosis --read-pbf extracted.osm.pbf --write-xml extracted.osm
-
-Finally convert the data 
-osmium export extracted.osm -o output.geojson
+add your geojson data as a file named area.geojson in the project folder
+this will cut your map to your desired size if you are struggling with processing times
+run python3 process_map.py
 
 
+run extract_nodes_ways.sh it removes a bunch of stuff so its quicker
+you can edit this file on line 19 if you want to compare against different features for example removing nwr/emergency!=* from line 19 will leave emergency
+titled map plots your output
+./extract_nodes_ways.sh
 
-Run the process_data.py
 
-See the glory!!
+You can now use FinalData.ipynb to create the map
+
 
 
 
