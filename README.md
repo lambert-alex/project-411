@@ -60,8 +60,16 @@ you can edit this file on line 19 if you want to compare against different featu
 titled map plots your output
 ./extract_nodes_ways.sh
 
+Download the boundaries of the area you would like to use
+https://osm-boundaries.com/map
+
+put them into a file called boundaries.geojson in the project file.
+
+You will have to correct the names of boundaries against muni_df manually in cell 8 I recomend taking set(muni_df.names) ^ set(boundaries) to find the difference between the names I could automate corerection but I have no idea of the scope of open osm data naming conventions
 
 You can now use FinalData.ipynb to create the map
+
+The map data will be output to map.html for some reason when I try and write it in the map to a notebook the title and the barchart interfere with each other
 
 
 
